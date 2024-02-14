@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+//font
+$Roboto:'Roboto', sans-serif;
+
+//screen sizes
+$Mobile: "only screen and (max-width:767px)";
+$Tablet: "only screen and (min-width: 768px) and (max-width: 992px)";
+$SmallLaptops: "only screen and (min-width: 993px) and (max-width: 1200px)";
+$Laptops: "only screen and (min-width: 1201px) and (max-width: 1500px)";
+
