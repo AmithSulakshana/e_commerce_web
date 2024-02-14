@@ -1,18 +1,30 @@
 
-import Navbar1 from './components/navbar/Navbar1';
+import Navbar from './components/navbar/Navbar';
+import Brand from './pages/Brand';
+import Home from './pages/Home';
 import './style/main.scss';
 import "bootstrap/dist/css/bootstrap.min.css";
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+import NewArriavals from './pages/NewArriavals';
+import OnSale from './pages/OnSale';
 
 function App() {
  
   return (
-    <>
-       <div>
-           <Navbar1/>
-           
-       </div>
+    
+       <BrowserRouter>
+          <Navbar/>
+          <Routes>
+             <Route path='/' element={<Home/>}/>
+             <Route path='/brand' element={<Brand/>}/>
+             <Route path='/newarriaval' element={<NewArriavals/>}/>
+             <Route path='/onsale' element={<OnSale/>}/>
+             
+          </Routes>
        
-    </>
+       </BrowserRouter>
+       
+    
   )
 }
 
