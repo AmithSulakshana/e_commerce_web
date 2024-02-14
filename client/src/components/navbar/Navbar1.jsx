@@ -48,7 +48,7 @@ function Navbar1() {
                   placeholder="Search"
                   className="me-2"
                   aria-label="Search"
-                />
+                />9
                 <Button variant="outline-success">Search</Button>
               </Form>
                
