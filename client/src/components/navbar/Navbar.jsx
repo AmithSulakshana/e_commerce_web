@@ -60,15 +60,15 @@ const Navbar = () => {
                 </Offcanvas.Body>
               </Offcanvas>
           </div>
-            <span className='nav-main-span1' >SHOP.CO</span>
+            <Link to='/' className='nav-main-span1' >SHOP.CO</Link>
             <Dropdown className='nav-dropdown'>
                 <Dropdown.Toggle variant="success" id="dropdown-basic" className='drop-toggle'>
-                  Shop
+                  <span style={{ borderBottom:Linkness('shop') }}>Shop</span>
                 </Dropdown.Toggle>
 
               <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+                <Dropdown.Item href="#/action-1"><Link to='shop/men'>Men</Link></Dropdown.Item>
+                <Dropdown.Item href="#/action-2">Women</Dropdown.Item>
                 <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>

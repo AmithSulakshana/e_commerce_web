@@ -43,6 +43,8 @@
             font-weight: 700;
             line-height: 38.4px;
             margin-left:35px;
+            text-decoration: none;
+            color: inherit;
 
             @media #{$Mobile} {
                font-size: 25.2px;
@@ -72,6 +74,7 @@
                 color: black;
                 font-size: 16px;
                 font-weight: 400;
+                
             
             }
         }
@@ -156,6 +159,7 @@
             border: none;
             background-color: #f0f0f0;
             margin-left: 5px;
+            outline: none;
         }
     }
 

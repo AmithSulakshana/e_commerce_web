@@ -7,6 +7,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import NewArriavals from './pages/NewArriavals';
 import OnSale from './pages/OnSale';
+import Men from './pages/Men';
+
 
 function App() {
  
@@ -19,7 +21,8 @@ function App() {
              <Route path='/brand' element={<Brand/>}/>
              <Route path='/newarriaval' element={<NewArriavals/>}/>
              <Route path='/onsale' element={<OnSale/>}/>
-             
+             <Route path='/shop/men' element={<Men/>}/>
+
           </Routes>
        
        </BrowserRouter>
