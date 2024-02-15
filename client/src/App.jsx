@@ -22,6 +22,7 @@ function App() {
              <Route path='/newarriaval' element={<NewArriavals/>}/>
              <Route path='/onsale' element={<OnSale/>}/>
              <Route path='/shop/men' element={<Men/>}/>
+             
 
           </Routes>
        
