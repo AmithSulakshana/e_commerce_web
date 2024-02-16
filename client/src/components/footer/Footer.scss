@@ -163,13 +163,22 @@
         z-index: 1;
 
         @media #{$Mobile} {
-          height: 1000px;                
+          height: 900px;                
+        }
+
+        @media #{$Tablet} {
+         height: 750px;                
+        }
+
+        @media #{$SmallLaptops} {
+            height: 550px;                 
         }
 
         .footer-row2-div1{
             display: flex;
             justify-content: center;
             padding-top: 115px;
+        
 
             @media #{$Mobile} {
              padding-top: 100px;
@@ -184,9 +193,18 @@
                  height: 650px;        
                 }
 
+                @media #{$Tablet} {
+                 height: 425px;        
+                }
+
+                @media #{$SmallLaptops} {
+                 height: 225px;        
+                }
+
                 .footer-row2-div1-row1-heder{
                     font-size: 33.45px;
                     font-weight: 700;
+                    color: #000000;
                 }
 
                 .footer-para2{
@@ -195,6 +213,8 @@
                     font-size: 14px;
                     font-weight: 400px;
                     line-height: 22px;
+                    padding-top: 10px;
+                    color: #00000099;
                 }
 
                 .footer-list{
@@ -214,7 +234,8 @@
                         font-weight: 400;
                         line-height: 18px;
                        // margin-left: 5px;
-                        margin-top: 18px;   
+                        margin-top: 18px;
+                        color: #00000099;   
                     }
             
                 }
@@ -235,7 +256,8 @@
                         font-weight: 400;
                         line-height: 18px;
                        // margin-left: 5px;
-                        margin-top: 18px;   
+                        margin-top: 18px;
+                        color: #00000099;   
                     }
                 }
             }
@@ -247,7 +269,16 @@
             margin-top: -30px;
 
             .footer-div2-span1{
-                text-align: center;
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 18.9px;
+                color: #00000099;
+
+                @media #{$Mobile} {
+                    text-align: center;    
+                }
+
+               
             }
 
             .footer-soim{

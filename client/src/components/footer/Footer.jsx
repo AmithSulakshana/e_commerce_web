@@ -2,12 +2,15 @@ import React from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import mailicon from './assest/mailicon.png';
-import { FaFacebook } from "react-icons/fa";
 import gpay from './assest/gpay.png';
 import ipay from './assest/ipay.png';
 import master from './assest/master.png';
 import paypal from './assest/paypal.png';
 import visa from './assest/visa.png';
+import twitter from './assest/twitter.png';
+import facebook from './assest/facebook.png';
+import insta from './assest/insta.png';
+import git from './assest/git.png';
 
 const Footer = () => {
   return (
@@ -37,10 +40,10 @@ const Footer = () => {
                       <span className='footer-row2-div1-row1-heder'>SHOP.CO</span>
                       <p className='footer-para2'>We have clothes that suits your style and which you’re proud to wear. From women to men.</p>
                       <div className='d-flex gap-2 pt-3'>
-                          <FaFacebook style={{width:'28px',height:'28px'}}/>
-                          <FaFacebook style={{width:'28px',height:'28px'}}/>
-                          <FaFacebook style={{width:'28px',height:'28px'}}/>
-                          <FaFacebook style={{width:'28px',height:'28px'}}/>
+                          <img src={twitter} alt='' style={{width:'28px',height:'28px'}} />
+                          <img src={facebook} alt='' style={{width:'28px',height:'28px'}} />
+                          <img src={insta} alt='' style={{width:'28px',height:'28px'}} />
+                          <img src={git} alt='' style={{width:'28px',height:'28px'}} />
                       </div>
                    </Col>
                    <Col lg={8}>
