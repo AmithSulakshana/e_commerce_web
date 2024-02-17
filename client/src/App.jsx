@@ -10,14 +10,17 @@ import Men from './pages/Men';
 import Footer from './components/footer/Footer';
 import SingUp from './pages/SingUp';
 import Logging from './pages/Logging';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { loginFail, loginSuccess } from './store/reducers/UserSlice';
+import SingupBar from './components/singupbar/SingupBar';
 
 
 function App() {
    const dispatch = useDispatch();
+   const user = useSelector(store=>store.userSlice)
+   const [singupShow , setSingupShow] = useState(true);
 
    useEffect(()=>{
           axios.get("http://localhost:3001/user/auth",{headers:{
@@ -32,10 +35,15 @@ function App() {
                }
             })
    },[])
+
+   const handleSingup = () =>{
+      setSingupShow(false)
+   }
  
   return (
     
        <BrowserRouter>
+         {(!user.authStatus && singupShow) && <SingupBar onClick={handleSingup}/>}
           <Navbar/>
           <Routes>
              <Route path='/' element={<Home/>}/>
