@@ -4,10 +4,11 @@ import { IoMdMenu } from "react-icons/io";
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { FaShoppingCart } from "react-icons/fa";
-import { FaUser } from "react-icons/fa";
-import cart from './assest/cart.png';
-import user from './assest/user.png';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import Avatar from '../avatar/Avatar';
+import Dropdownmen from '../dropdown/Dropdownmen';
+
 
 
 const Navbar = () => {
@@ -16,6 +17,10 @@ const Navbar = () => {
   const handleShow = () => setShow(true);
   const {pathname} = useLocation();
   let subPage = pathname.split('/')?.[1];
+  const user = useSelector(store=>store.userSlice)
+  const navigate = useNavigate();
+  const [avatarDropdownVisible, setAvatarDropdownVisible] = useState(false);
+
 
   function Linkness(type=null){
     if(subPage=== ''){
@@ -33,6 +38,19 @@ const Navbar = () => {
 
     return classes
   }
+
+  const handleLoging = () =>{
+      navigate("/login")
+  }
+
+  const handleAvatarMouseEnter = () => {
+    setAvatarDropdownVisible(true);
+  };
+
+  const handleAvatarMouseLeave = () => {
+    setAvatarDropdownVisible(false);
+  };
+
 
   return (
     <div className='nav-main'>
@@ -86,10 +104,26 @@ const Navbar = () => {
 
         <div className='nav-div3'>
             <img className='nav-search-icoo-small' src={searchIcon} alt=''/>
-            {/* <img className='nav-cart' src={cart} alt=''/>
-            <img className='nav-user' src={user} alt=''/> */}
-           <FaShoppingCart className='nav-cart'/>
-           <FaUser className='nav-user'/>
+            <FaShoppingCart className='nav-cart'/>
+                {user.authStatus ? (
+                  <>
+                      <Avatar
+                        name={user.userName}
+                        onMouseEnter={handleAvatarMouseEnter} 
+                        onMouseLeave={handleAvatarMouseLeave} 
+
+                      />
+                    
+                    {avatarDropdownVisible && <Dropdownmen
+                         onMouseEnter={handleAvatarMouseEnter} 
+                         onMouseLeave={handleAvatarMouseLeave} 
+                    />}
+                     
+                  </>
+              
+                  ):(
+                    <button className='nav-loging' onClick={handleLoging}>Loging</button>
+                  )}   
         </div>
     </div>
   )

@@ -14,9 +14,15 @@ const UserSlice = createSlice({
             state.authStatus = true;
             state.userName = action.payload.userName;
             state.id = action.payload.id;
+        },
+
+        loginFail: (state, action) => {
+            state.authStatus = false;
+            state.userName = '';
+            state.id = 0
         }
      }
 })
 
-export const { loginSuccess } = UserSlice.actions;
+export const { loginSuccess,loginFail } = UserSlice.actions;
 export default UserSlice.reducer

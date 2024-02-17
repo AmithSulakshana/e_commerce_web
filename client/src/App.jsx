@@ -10,9 +10,28 @@ import Men from './pages/Men';
 import Footer from './components/footer/Footer';
 import SingUp from './pages/SingUp';
 import Logging from './pages/Logging';
+import { useEffect } from 'react';
+import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { loginFail, loginSuccess } from './store/reducers/UserSlice';
 
 
 function App() {
+   const dispatch = useDispatch();
+
+   useEffect(()=>{
+          axios.get("http://localhost:3001/user/auth",{headers:{
+            accessToken:localStorage.getItem("accessToken")}})
+            .then((response) =>{
+               if(response.data.error){
+                dispatch(loginFail());
+               }
+
+               else{
+                  dispatch(loginSuccess({userName:response.data.userName,id:response.data.id}))
+               }
+            })
+   },[])
  
   return (
     
