@@ -8,6 +8,8 @@ import NewArriavals from './pages/NewArriavals';
 import OnSale from './pages/OnSale';
 import Men from './pages/Men';
 import Footer from './components/footer/Footer';
+import SingUp from './pages/SingUp';
+import Logging from './pages/Logging';
 
 
 function App() {
@@ -22,7 +24,8 @@ function App() {
              <Route path='/newarriaval' element={<NewArriavals/>}/>
              <Route path='/onsale' element={<OnSale/>}/>
              <Route path='/shop/men' element={<Men/>}/>
-             
+             <Route path='/singup' element={<SingUp/>}/>
+             <Route path='/login' element={<Logging/>}/>
 
           </Routes>
           <Footer/>
