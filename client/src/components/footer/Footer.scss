@@ -29,6 +29,7 @@
           line-height: 45px;
           margin: 0px;
           margin-left:30px;
+          font-family: $IntegralCF;
 
           @media #{$Mobile} {
               width: 85%;
@@ -128,6 +129,8 @@
             align-items: center;
             justify-content: center;
 
+          
+
             @media #{$Mobile} {
                 width: 100%;          
              }
@@ -145,6 +148,11 @@
                 font-weight: 500;
                 line-height: 21.6px;
                 cursor: pointer;
+                font-family: $Satoshi;
+            }
+
+            .footer-row1-col2-div2-button:hover{
+                color: $Purple2;
             }
           }
 
@@ -203,6 +211,7 @@
                     font-size: 33.45px;
                     font-weight: 700;
                     color: #000000;
+                    font-family: $IntegralCF;
                 }
 
                 .footer-para2{
@@ -213,6 +222,7 @@
                     line-height: 22px;
                     padding-top: 10px;
                     color: #00000099;
+                    font-family: $Satoshi;
                 }
 
                 .footer-list{
@@ -224,7 +234,8 @@
                     .footer-list-1{
                         font-size:16px;
                         font-weight: 500;
-                        line-height: 18px;   
+                        line-height: 18px; 
+                        font-family: $Satoshi;  
                     }
 
                     .footer-list-2{
@@ -232,7 +243,8 @@
                         font-weight: 400;
                         line-height: 18px;
                         margin-top: 18px;
-                        color: #00000099;   
+                        color: #00000099; 
+                        font-family: $Satoshi;  
                     }
             
                 }
@@ -245,7 +257,8 @@
                     .footer-list2-1{
                         font-size:16px;
                         font-weight: 500;
-                        line-height: 18px;   
+                        line-height: 18px; 
+                        font-family: $Satoshi;    
                     }
 
                     .footer-list2-2{
@@ -253,7 +266,8 @@
                         font-weight: 400;
                         line-height: 18px;
                         margin-top: 18px;
-                        color: #00000099;   
+                        color: #00000099;
+                        font-family: $Satoshi;     
                     }
                 }
             }
@@ -269,6 +283,7 @@
                 font-weight: 400;
                 line-height: 18.9px;
                 color: #00000099;
+                font-family: $Satoshi;  
 
                 @media #{$Mobile} {
                     text-align: center;    
