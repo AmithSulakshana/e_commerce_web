@@ -1,0 +1,33 @@
+.singupbar-main{
+   position: relative;
+    height: 38px;
+    width: 100%;
+    background-color: #000000;
+    z-index:3;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .singup-para{
+        text-align: center;
+        margin: 0;
+        font-size: 14px;
+        font-weight: 400;
+
+        .link-dec{
+            //text-decoration: none;
+            color: inherit;
+            
+            
+        }
+
+    }
+
+    .cros-im{
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        right:7%;
+    }
+}

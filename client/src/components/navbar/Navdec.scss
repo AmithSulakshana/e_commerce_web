@@ -45,6 +45,7 @@
             margin-left:35px;
             text-decoration: none;
             color: inherit;
+            font-family: $IntegralCF;
 
             @media #{$Mobile} {
                font-size: 25.2px;
@@ -192,9 +193,17 @@
 
         }
 
-        .nav-user{
-            height: 24px;
-            width: 24px;
+        .nav-loging{
+            height: 27px;
+            width: 60px;
+            padding: 0px;
+            border: 1px solid;
+            border-color:#00000099;
+            border-radius: 5px;
+        }
+
+        .nav-loging:hover{
+            border-color: black;
         }
     }
 }

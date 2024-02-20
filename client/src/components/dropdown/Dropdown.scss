@@ -1,0 +1,28 @@
+.dropdown-main{
+  position: absolute; 
+  background-color: white;
+  color: black;
+  right:0px;
+  top:35px; 
+  border: 2px solid gray;
+  border-radius:10px;
+  width: 170px;
+  z-index: 20;
+  padding: 5px;
+  height: 120px;
+
+  .dropdown-ul{
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+
+    .log-outdec{
+        cursor: pointer;
+    }
+
+    .log-outdec:hover {
+        color:#00000099; 
+    }
+  }
+  
+}
