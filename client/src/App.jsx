@@ -15,7 +15,8 @@ import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginFail, loginSuccess } from './store/reducers/UserSlice';
 import SingupBar from './components/singupbar/SingupBar';
-import ProductCard from './components/productCard/ProductCard';
+import Carosusel from './components/carousel/carouselBody/Carosusel';
+
 
 
 function App() {
@@ -46,13 +47,7 @@ function App() {
        <BrowserRouter>
          {(!user.authStatus && singupShow) && <SingupBar onClick={handleSingup}/>}
           <Navbar/>
-          <ProductCard
-            productIm='https://firebasestorage.googleapis.com/v0/b/demo2-45e9e.appspot.com/o/Shop.com_project%2Fimage%205.png?alt=media&token=a88c90cb-b9e3-4a17-9b76-972e86a81116'
-            productName="T-shirt"
-            rating={4.3}
-            price={260}
-            newPrice = {240}
-          />
+          <Carosusel/>
           <Routes>
              <Route path='/' element={<Home/>}/>
              <Route path='/brand' element={<Brand/>}/>
