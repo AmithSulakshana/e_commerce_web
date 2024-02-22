@@ -31,7 +31,7 @@ const ProductCard = (props) => {
                    <p className='row4-div1-para3'>{rate}%</p>
              </div>
           ):(
-            <p>{price}</p>
+            <p className='row4-div-para1'>${price}</p>
           )}
           
        </Row>

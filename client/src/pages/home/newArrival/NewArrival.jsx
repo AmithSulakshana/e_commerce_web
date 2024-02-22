@@ -33,7 +33,7 @@ const NewArrival = () => {
                 productName={val.ProductsName}
                 rating={4.5}
                 price={val.Price}
-                newPrice={val.newPrice}
+                //newPrice={val.newPrice}
               />
 
         </div>

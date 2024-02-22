@@ -9,6 +9,15 @@ router.get("/",async(req,res) =>{
     res.json(getAll);
 });
 
+router.get("/byId/:id",async(req,res) =>{
+    const id =req.params.id
+    const product = await Products.findByPk(id);
+    const sameProduct = await Products.findAll({where:{ProductsName:product.ProductsName}})
+    res.json(sameProduct);
+})
+
+
+
 router.post("/",async(req,res) =>{
     const product = req.body;
     await Products.create(product);
