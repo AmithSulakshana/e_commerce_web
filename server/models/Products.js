@@ -39,7 +39,12 @@ module.exports = (Sequelize,DataTypes) =>{
         sideImage:{
             type:DataTypes.STRING,
             allowNull: false,
+        },
+        gender:{
+            type:DataTypes.STRING,
+            allowNull: false,
         }
+
 
         
 

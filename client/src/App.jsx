@@ -2,7 +2,7 @@ import './style/main.scss';
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from './components/navbar/Navbar';
 import Brand from './pages/Brand';
-import Home from './pages/Home';
+import Home from './pages/home/Home';
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import NewArriavals from './pages/NewArriavals';
 import OnSale from './pages/OnSale';
@@ -15,7 +15,8 @@ import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginFail, loginSuccess } from './store/reducers/UserSlice';
 import SingupBar from './components/singupbar/SingupBar';
-import Carosusel from './components/carousel/carouselBody/Carosusel';
+import Cart from './pages/cart/Cart';
+import MenShirt from './pages/menShirt/MenShirt';
 
 
 
@@ -47,7 +48,7 @@ function App() {
        <BrowserRouter>
          {(!user.authStatus && singupShow) && <SingupBar onClick={handleSingup}/>}
           <Navbar/>
-          <Carosusel/>
+          
           <Routes>
              <Route path='/' element={<Home/>}/>
              <Route path='/brand' element={<Brand/>}/>
@@ -56,6 +57,8 @@ function App() {
              <Route path='/shop/men' element={<Men/>}/>
              <Route path='/singup' element={<SingUp/>}/>
              <Route path='/login' element={<Logging/>}/>
+             <Route path ='/cart' element={<Cart/>}/>
+             <Route path ='/men/shirt/:id' element={<MenShirt/>}/>
 
           </Routes>
           <Footer/>
