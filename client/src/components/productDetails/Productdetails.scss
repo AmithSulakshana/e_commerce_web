@@ -1,0 +1,107 @@
+.product-details-main{
+    padding-top: 25px;
+    .product-details-main-row1{
+         margin: 0;
+        .pro-row1-col1{
+            padding-left:45px;
+            .row1-col1-div1{
+                display: flex;
+                justify-content: space-between;
+
+                .row1-col1-img{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    .imge-size1{
+                        width: 152px;
+                        height: 167px;
+                        border:1px;
+                        border-radius: 20px;
+                    }
+                }
+
+                .row1-col1-imglarge{
+                    .imge-size2{
+                        width: 444px;
+                        height: 530px;
+                        border: 1px;
+                        border-radius: 20px;
+                    }
+                }
+            }
+        }
+
+        .pro-row1-col2{
+            .row1-col2-para1{
+                font-size: 40px;
+                font-weight: 700;
+                margin: 0;
+            }
+
+            .row1-col2-div1{
+                margin: 0;
+        
+                .row4-div1{
+                    display: flex;
+                    gap: 12px;
+        
+                    .row4-div1-para1{
+                       font-size: 24px;
+                       font-weight: 700;
+                       line-height: 32px;
+                       font-family:$Satoshi;
+                       margin: 0;
+                    }
+        
+                    .row4-div1-para2{
+                        font-size: 24px;
+                        font-weight: 700;
+                        line-height: 32px;
+                        color:$Brown1;
+                        text-decoration: line-through;
+                        font-family:$Satoshi;
+                        margin: 0;
+                    }
+        
+                    .row4-div1-para3{
+                          margin: 0;
+                          width: 58px;
+                          height: 28px;
+                          border: 1px;
+                          border-radius: 62px;
+                          background-color:$Purple1;
+                          color: $Red1;
+                          margin-top: 2px;
+                          font-size: 12px;
+                          text-align: center;
+                          font-family:$Satoshi;
+                          font-weight: 500;
+                          padding-top: 4px;
+                          
+                    }
+                }
+        
+                .row4-div-para1{
+                    font-size: 24px;
+                    font-weight: 700;
+                    line-height: 32px;
+                    font-family:$Satoshi;
+                    margin: 0;
+                 }
+        
+        
+            }
+
+            .row1-col2-para2{
+                font-size: 16px;
+                font-weight: 400;
+            }
+
+            .row1-col2-para3{
+                font-size: 16px;
+                font-weight: 400;
+                margin: 0;
+            }
+        }
+    }
+}

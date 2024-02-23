@@ -19,6 +19,7 @@ const Navbar = () => {
   const {pathname} = useLocation();
   let subPage = pathname.split('/')?.[1];
   const user = useSelector(store=>store.userSlice)
+  const cart = useSelector(store=>store.cartSlice)
   const navigate = useNavigate();
   const [avatarDropdownVisible, setAvatarDropdownVisible] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
@@ -65,7 +66,7 @@ const Navbar = () => {
     });
   }
 
-  console.log(searchResults)
+  
 
 
   return (
@@ -124,7 +125,7 @@ const Navbar = () => {
 
         <div className='nav-div3'>
             <img className='nav-search-icoo-small' src={searchIcon} alt=''/>
-            <FaShoppingCart className='nav-cart'/>
+            <FaShoppingCart className='nav-cart'/>{user.authStatus&&<span>{cart.numberOfItem}</span>}
                 {user.authStatus ? (
                   <>
                       <Avatar

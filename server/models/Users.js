@@ -12,5 +12,12 @@ module.exports = (Sequelize,DataTypes) =>{
 
     })
 
+    Users.associate = (models) => {
+        Users.hasMany(models.Carts,{
+           onDelete:"cascade",
+        });
+        
+    }
+
     return Users;
 }

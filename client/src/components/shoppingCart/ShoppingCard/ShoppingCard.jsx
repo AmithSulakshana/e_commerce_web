@@ -4,7 +4,7 @@ import minus from '../assest/minus.png';
 import plus from '../assest/plus.png';
 
 const ShoppingCard = (props) => {
-    const{itemImg,itemName,price,size,colour,quntity} =props;
+    const{itemImg,itemName,price,size,colour,quntity,clickMinus,clickPlus} =props;
   return (
     <div className='shopping-card-main'>
         <div className='shopping-card-div1'>
@@ -22,9 +22,9 @@ const ShoppingCard = (props) => {
             <div className='shopping-card-div2-div2'>
                <img src={deleticon} style={{width:"24px",height:"24px"}} alt=''/>
                <div className='quntity-box'>
-                  <img style={{width:"20px",height:"20px"}} src={minus} alt='' />
+                  <img onClick={clickMinus} style={{width:"20px",height:"20px"}} src={minus} alt='' />
                   <span>{quntity}</span>
-                  <img style={{width:"20px",height:"20px"}}  src={plus} alt=''/>
+                  <img onClick={clickPlus} style={{width:"20px",height:"20px"}}  src={plus} alt=''/>
                </div>
             </div>
         </div>

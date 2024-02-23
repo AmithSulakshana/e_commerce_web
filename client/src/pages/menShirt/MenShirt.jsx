@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import PathNarrow from '../../components/pathNarraror/PathNarrow';
 import axios from 'axios';
+import ProductDetails from '../../components/productDetails/ProductDetails';
 
 const MenShirt = () => {
     const{id} = useParams();
@@ -28,15 +29,22 @@ const MenShirt = () => {
   
   return (
     <div>
-       {redColour.length > 0 && (
-                <div>
-                    <h1>{redColour[0].ProductsName}</h1>
-                    <h1>{redColour[0].colour}</h1>
-                    <button>-</button>
-                    <button>+</button>
-                    <button>Add to cart</button>
-                </div>
-            )}
+      <PathNarrow/>
+       {redColour.map((val,index)=>{
+        return(
+          <div key={index}>
+               <ProductDetails
+                 backImg={val.backImage}
+                 frontImg = {val.frontImage}
+                 sideImg={val.sideImage}
+                 price = {val.Price}
+                 newPrice = {val.newPrice}
+                 productName ={val.ProductsName}
+                 rating={4.5}
+               />
+          </div>
+        )
+       })}
     </div>
   )
 }

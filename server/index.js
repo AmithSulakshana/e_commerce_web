@@ -17,6 +17,9 @@ app.use("/user",userRouter);
 const reviewRouter = require('./routes/Reviews');
 app.use("/review",reviewRouter)
 
+const cartRouter = require('./routes/Cart');
+app.use("/cart",cartRouter);
+
 db.sequelize.sync().then(() =>{
     app.listen(3001,() =>{
         console.log("server is running ")
