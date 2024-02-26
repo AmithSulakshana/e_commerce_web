@@ -18,7 +18,7 @@ import SingupBar from './components/singupbar/SingupBar';
 import Cart from './pages/cart/Cart';
 import MenShirt from './pages/menShirt/MenShirt';
 import { addToCart } from './store/reducers/CartSlice';
-
+import Token from './components/tokenGenerate/Token';
 
 
 function App() {

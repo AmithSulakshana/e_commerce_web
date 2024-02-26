@@ -16,6 +16,8 @@ function Cart() {
  const user = useSelector(store=>store.userSlice)
  const deliveryFee=20;
  const discount = 10;
+
+ 
   
   const handlereduce = (id) => {
     axios.post(`http://localhost:3001/cart/removeone/${id}`, {}, {
@@ -44,6 +46,29 @@ function Cart() {
         console.error('Error removing item from cart:', error);
     });
   }
+ 
+ 
+  const handleProductDelete = (id) => {
+
+    const isConfirmed = window.confirm("Are you sure you want to delete this item?");
+
+    
+    if (isConfirmed) {
+        axios.delete(`http://localhost:3001/cart/${id}`, {
+                headers: {
+                    accessToken: localStorage.getItem("accessToken")
+                }
+            })
+            .then((res) => {
+                updateCart();
+               
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    }
+}
+
 
   const updateCart = () => {
     axios.get("http://localhost:3001/cart",{headers:{accessToken:localStorage.getItem("accessToken")}})
@@ -65,6 +90,7 @@ function Cart() {
     .catch(error => {
         console.error('Error fetching subtotal:', error);
     });
+
   }
    
   
@@ -97,6 +123,7 @@ function Cart() {
                     quntity={val.quntity}
                     clickMinus={()=>handlereduce(val.Product.id)}
                     clickPlus={()=>handleIncrease(val.Product.id)}
+                    clickdelete={()=>handleProductDelete(val.Product.id)}
                   />   
               </div>
             )

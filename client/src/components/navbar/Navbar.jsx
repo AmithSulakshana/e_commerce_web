@@ -125,7 +125,9 @@ const Navbar = () => {
 
         <div className='nav-div3'>
             <img className='nav-search-icoo-small' src={searchIcon} alt=''/>
-            <FaShoppingCart className='nav-cart'/>{user.authStatus&&<span>{cart.numberOfItem}</span>}
+             <div className='cart-num-div'>
+             <Link to='/cart' className='cart-dec'><FaShoppingCart className='nav-cart'/></Link>{user.authStatus&&<span className='cart-num'>{cart.numberOfItem}</span>}
+             </div>
                 {user.authStatus ? (
                   <>
                       <Avatar

@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const {Carts,Products} = require('../models')
 const {validateToken} = require('../middlewares/AuthMiddleware');
+const {sign} = require("jsonwebtoken");
+const {verify} = require("jsonwebtoken");
 
 router.post("/",validateToken, async(req,res)=>{
     const cart = req.body
@@ -79,6 +81,7 @@ router.get("/subprice", validateToken, async (req, res) => {
 
         const deliveryFee = req.query.deliveryFee ? parseFloat(req.query.deliveryFee) : 0;
         const discount = req.query.discount ? parseFloat(req.query.discount) : 0;
+        const promoCode = req.query.promoCode ? parseFloat(req.query.promoCode) : 0;
 
         let totalPrice = 0;
         let totalQuntity = 0;
@@ -96,14 +99,34 @@ router.get("/subprice", validateToken, async (req, res) => {
 
         
         const discountval = totalPrice * (discount / 100);
-
+        const addPromo = totalPrice*(promoCode/100);
         
-        const totalPriceWithFee = totalPrice-discountval + deliveryFee;
+        const totalPriceWithFee = totalPrice-discountval + deliveryFee - addPromo;
 
         res.json({ totalPrice: totalPriceWithFee,subPrice:totalPrice,dicountvalue:discountval,totalquntity:totalQuntity});
     } catch (error) {
         console.error('Error fetching cart items:', error);
         res.status(500).json({ error: 'Internal Server Error' });
+    }
+});
+
+router.delete("/clear", validateToken, async (req, res) => {
+    try {
+        const products = await Carts.findAll({
+            where: { UserId: req.user.id }
+        });
+
+        if (products.length > 0) {
+            for (const product of products) {
+                await product.destroy();
+            }
+            res.json("Cart cleared successfully");
+        } else {
+            res.json("Your cart is already empty");
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: "Internal Server Error" });
     }
 });
 
@@ -130,6 +153,38 @@ router.delete("/:productId",validateToken,async(req,res)=>{
 
 })
 
+
+
+router.post("/token",async(req,res)=>{
+    const {userName,userId,discount} = req.body;
+    const promoToken = sign({userName:userName,id:userId,discount:discount},"important secret promo");
+    res.json({PromoCode:promoToken})
+
+})
+
+router.get("/token",async(req,res)=>{
+    const promoCode = req.query.promoCode;
+try{
+    const validPromo = verify(promoCode,"important secret promo");
+
+    if(validPromo){
+        const discount = validPromo.discount;
+        const userName = validPromo.userName;
+        res.json({Discount:discount,UserName:userName})
+    }
+
+    else{
+        res.json({Discount:0})
+    }
+
+ 
+} catch (error) {
+    
+    res.status(401).json({ error: "Invalid token" });
+}   
+   
+
+})
 
 
 

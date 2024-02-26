@@ -36,7 +36,7 @@ const Avatar = ({ name ,onMouseEnter,onMouseLeave}) => {
   return (
     <div onMouseEnter={onMouseEnter}
          onMouseLeave={onMouseLeave}
-         style={{ backgroundColor: avatarProps.sx.bgcolor, width: '24px', height: '24px', borderRadius: '50%', display: 'flex', justifyContent: 'center', alignItems: 'center', color: 'white' }}>
+         style={{ backgroundColor: avatarProps.sx.bgcolor, width: '24px', height: '24px', borderRadius: '50%', display: 'flex', justifyContent: 'center', alignItems: 'center', color: 'white',marginTop:'7px' }}>
       {avatarProps.children}
       
     </div>
