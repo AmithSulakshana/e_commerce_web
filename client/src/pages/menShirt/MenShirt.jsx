@@ -77,7 +77,7 @@ const MenShirt = () => {
       
   return (
     <div>
-      <PathNarrow/>
+      <PathNarrow padinLeft='50px'/>
           <div>
                <ProductDetails
                  backImg={product.backImage}
