@@ -74,7 +74,6 @@ const MenShirt = () => {
       return <div>Loading...</div>;
     }
    
-     console.log(numOfItems)
       
   return (
     <div>

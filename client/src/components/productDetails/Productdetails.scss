@@ -39,17 +39,19 @@
                 font-size: 40px;
                 font-weight: 700;
                 margin: 0;
+                margin-bottom: 5px;
             }
 
             .row1-col2-div1{
                 margin: 0;
-        
+                margin-top: 10px;
+                margin-bottom: 10px;
                 .row4-div1{
                     display: flex;
                     gap: 12px;
         
                     .row4-div1-para1{
-                       font-size: 24px;
+                       font-size: 32px;
                        font-weight: 700;
                        line-height: 32px;
                        font-family:$Satoshi;
@@ -57,7 +59,7 @@
                     }
         
                     .row4-div1-para2{
-                        font-size: 24px;
+                        font-size: 32px;
                         font-weight: 700;
                         line-height: 32px;
                         color:$Brown1;
@@ -68,14 +70,14 @@
         
                     .row4-div1-para3{
                           margin: 0;
-                          width: 58px;
-                          height: 28px;
+                          width: 72px;
+                          height: 34px;
                           border: 1px;
                           border-radius: 62px;
                           background-color:$Purple1;
                           color: $Red1;
                           margin-top: 2px;
-                          font-size: 12px;
+                          font-size: 16px;
                           text-align: center;
                           font-family:$Satoshi;
                           font-weight: 500;
@@ -98,12 +100,102 @@
             .row1-col2-para2{
                 font-size: 16px;
                 font-weight: 400;
+                font-family: $Satoshi;
+                color: #00000099;
             }
 
             .row1-col2-para3{
                 font-size: 16px;
                 font-weight: 400;
+                color: #00000099;
+                font-family: $Satoshi;
                 margin: 0;
+                margin-bottom: 7px;
+            }
+
+            .col2-div4{
+                display: flex;
+                gap: 5px;
+
+                .col2-div4-bt1{
+                    width: 37px;
+                    height: 37px;
+                    border: 1px;
+                    border-radius: 37px;
+                    padding-bottom: 5px;
+                }
+            }
+
+            .col2-div5{
+                font-size: 16px;
+                font-weight: 400;
+                color: #00000099;
+                font-family: $Satoshi;
+                margin-bottom: 5px;
+            }
+
+            .col2-div6{
+                 display: flex;
+                 gap: 5px;
+
+                .col2-div6-btn1{
+                   width: 105px;
+                   height: 46px;
+                   border: 1px;
+                   border-radius: 62px;
+                   background-color: #F0F0F0;
+                   color: #00000099;
+                   font-size: 16px;
+                   font-weight: 400px;
+                   
+                }
+
+                .col2-div6-btn1-click{
+                    color: white;
+                    background-color: black;
+                }
+            }
+
+            .col2-div7{
+                display: flex;
+                justify-content: space-between;
+                padding-right: 35px;
+                margin-top:40px;
+
+                .col2-div7-div1{
+                    display: flex;
+                    width: 170px;
+                    height: 52px;
+                    border: 1px;
+                    border-radius: 62px;
+                    background-color: #F0F0F0;
+                    align-items: center;
+                    justify-content:space-evenly;
+
+                    .col2-div7-div1-btn1{
+                        width: 24px;
+                        height: 24px;
+                        border: none;
+                        font-size:16px;
+                        cursor: pointer;
+                    }
+                }
+
+                .col2-div7-div2{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    cursor: pointer;
+                    width: 400px;
+                    height: 52px;
+                    background-color: black;
+                    color: white;
+                    border: 1px;
+                    border-radius: 62px;
+                    font-size: 16px;
+                    font-weight: 500;
+                }
+               
             }
         }
     }

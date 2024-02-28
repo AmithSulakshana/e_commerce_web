@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Col from 'react-bootstrap/esm/Col';
 import Row from 'react-bootstrap/esm/Row';
 import StarRating from '../productCard/StarRating';
 import {useDispatch, useSelector } from 'react-redux';
-import axios from 'axios';
-import { useParams } from 'react-router-dom';
-import { addProduct, addQuantity } from '../../store/reducers/ProductSlice';
+import { addQuantity } from '../../store/reducers/ProductSlice';
+import tik from './assest/tik.png';
+import minus from '../shoppingCart/assest/minus.png'
+import plus from '../shoppingCart/assest/plus.png'
 
 const ProductDetails = (props) => {
     const{backImg,frontImg,sideImg,price,newPrice,rating,productName,colour,size,clickRed,clickBlue,
@@ -19,7 +20,6 @@ const ProductDetails = (props) => {
     const quan = useSelector(store=>store.productSlice.quantity)
     const dispatch = useDispatch();
     
-
 
     const handleChangeImg = (img) =>{
         setLargeImage(img)
@@ -53,8 +53,6 @@ const ProductDetails = (props) => {
         const quant = quan+1;
         dispatch(addQuantity({quantity:quant}))
     }
-
-    
  
   return (
     <div className='product-details-main'>
@@ -89,24 +87,34 @@ const ProductDetails = (props) => {
                 <p className='row1-col2-para2'>This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.</p>
                 <hr></hr>
                 <p className='row1-col2-para3'>Select Colors</p>
-                <div>
-                    <button style={{background:`${selectedColour=== 'red' ? 'red':''}`}} onClick={handleRed}>red</button>
-                    <button style={{background:`${selectedColour=== 'blue' ? 'blue':''}`}} onClick={handleBlue}>blue</button>
+                <div className='col2-div4'>
+                    <button className='col2-div4-bt1' style={{background:'red'}} onClick={handleRed}>
+                        {selectedColour === 'red' ?  <img src={tik} alt=''/>:'' }
+                    </button>
+                    <button className='col2-div4-bt1' style={{background:'blue'}} onClick={handleBlue}>
+                        {selectedColour === 'blue' ?  <img src={tik} alt=''/>:'' }
+                    </button>
                 </div>
                 <hr></hr>
-                <p>Choose Size</p>
-                <div>
-                    <button style={{background:`${selectedSize === "sm" ? 'blue' :''}`}} onClick={handleSm}>small</button>
-                    <button style={{background:`${selectedSize === "md" ? 'blue' :''}`}} onClick={()=>setSelectedSize("md")}>medium</button>
-                    <button style={{background:`${selectedSize === "lg" ? 'blue' :''}`}} onClick={()=>setSelectedSize("lg")}>large</button>
-                    <button style={{background:`${selectedSize === "xl" ? 'blue' :''}`}} onClick={()=>setSelectedSize("xl")}>x-large</button>
+                <p className='col2-div5'>Choose Size</p>
+                <div className='col2-div6'>
+                    <button className={`col2-div6-btn1 ${selectedSize==="sm" ? 'col2-div6-btn1-click' :''}`} onClick={handleSm}>Small</button>
+                    <button className={`col2-div6-btn1 ${selectedSize==="md" ? 'col2-div6-btn1-click' :''}`} onClick={()=>setSelectedSize("md")}>Medium</button>
+                    <button className={`col2-div6-btn1 ${selectedSize==="lg" ? 'col2-div6-btn1-click' :''}`} onClick={()=>setSelectedSize("lg")}>Large</button>
+                    <button className={`col2-div6-btn1 ${selectedSize==="xl" ? 'col2-div6-btn1-click' :''}`} onClick={()=>setSelectedSize("xl")}>X-Large</button>
                 </div>
                 <hr></hr>
-                <div>
-                    <button onClick={handleReduce}>-</button>
-                     {quan}
-                    <button onClick={handleIncrease}>+</button>
-                    <button onClick={clickAddToCart}>Add to cart</button>
+                <div className='col2-div7'>
+                    <div className='col2-div7-div1'>
+                        <img src={minus} alt='' className='col2-div7-div1-btn1' onClick={handleReduce}/>
+                           {quan}
+                        <img src={plus} alt='' className='col2-div7-div1-btn1' onClick={handleIncrease}/>     
+                    </div>
+
+                    <div className='col2-div7-div2' onClick={clickAddToCart}>
+                        Add to Cart
+                    </div>
+                        
                 </div>
                 
             </Col>
