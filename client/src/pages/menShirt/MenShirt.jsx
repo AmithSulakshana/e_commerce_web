@@ -6,6 +6,7 @@ import ProductDetails from '../../components/productDetails/ProductDetails';
 import { useDispatch, useSelector } from 'react-redux';
 import { addProduct } from '../../store/reducers/ProductSlice';
 import { addToCart } from '../../store/reducers/CartSlice';
+import Review from '../../components/review/Review';
 
 const MenShirt = () => {
     const{id} = useParams();
@@ -95,6 +96,7 @@ const MenShirt = () => {
                  clickAddToCart={handleAddToCart}
                />
           </div>
+          <Review/>
         
      
     </div>
