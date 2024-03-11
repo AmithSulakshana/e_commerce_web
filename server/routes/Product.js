@@ -12,8 +12,34 @@ router.get("/",async(req,res) =>{
 router.get("/byId/:id",async(req,res) =>{
     const id =req.params.id
     const product = await Products.findByPk(id);
-    const sameProduct = await Products.findAll({where:{ProductsName:product.ProductsName}})
-    res.json(sameProduct);
+    //const sameProduct = await Products.findAll({where:{ProductsName:product.ProductsName}})
+    res.json(product);
+})
+
+router.get("/detailsearch/:id",async(req,res)=>{
+    const id = req.params.id;
+    const size = req.query.size || '';
+    const color = req.query.color || '';
+    const product = await Products.findByPk(id)
+   
+    let selectProduct ={};
+
+    selectProduct.ProductsName=product.ProductsName;
+
+    if(size!=''){
+        selectProduct.size=size;
+    }
+
+    if(color!=''){
+        selectProduct.colour=color
+    }
+
+    const searchResul = await Products.findOne({
+        where:selectProduct
+    })
+
+    res.json(searchResul)
+
 })
 
 

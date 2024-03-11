@@ -1,0 +1,200 @@
+.hero-main{
+    background-color: #F2F0F1;
+    margin-top: 20px;
+    .hero-main-row{
+        margin: 0;
+        padding-left: 33px;
+
+        @media #{$Mobile} {
+          padding-left: 0;                
+        }
+
+        .hero-main-row-col1{
+            .hero-para1{
+                width: 577px;
+                line-height: 64px;
+                margin-top: 60px;
+                font-size: 64px;
+                font-weight: 700;
+                color: black;
+                font-family: $IntegralCF;
+
+                @media #{$Mobile} {
+                   width:100%;
+                   font-size: 36px;
+                   line-height: 34px;  
+                   margin-top: 20px;  
+                }
+
+                @media #{$Tablet} {
+                   width: 100%;      
+                }
+
+            }
+
+            .hero-para2{
+                width: 90%;//545px;
+                font-size: 16px;
+                font-weight: 400;
+                font-family: $Satoshi;
+                color: #00000099;
+
+                @media #{$Mobile} {
+                 width: 100%;
+                 font-size: 14px;
+
+                        
+                }
+
+            }
+
+            .hero-para3{
+                display: flex;
+                margin-top: 20px;
+                width: 210px;
+                height: 52px;
+                border: 1px;
+                border-radius: 62px;
+                background-color: black;
+                color: white;
+                justify-content: center;
+                align-items: center;
+                font-size: 16px;
+                font-weight: 500;
+                font-family: $Satoshi;
+
+                @media #{$Mobile} {
+                 width: 100%;        
+                }
+
+            }
+
+            .hero-para4{
+                margin: 0;
+                margin-top: 40px;
+
+                @media #{$Mobile} {
+                  margin-top: 20px;       
+                }
+
+                .hero-para4-col1{
+                    border-right: 1px solid #0000001A;
+
+                    @media #{$Mobile} {
+                        padding-left: 15%; 
+                    }
+
+                   
+                    .para4-col1-para1{
+                        margin: 0;
+                        font-size: 40px;
+                        font-weight: 700;
+                        font-family: $Satoshi;
+                        line-height: 54px;
+
+                        @media #{$Mobile} {
+                         font-size: 24px;
+                         line-height: 32.4px;
+
+                        }
+                    }
+
+                    .para4-col1-para2{
+                        margin: 0;
+                        font-size: 16px;
+                        font-weight: 400;
+                        font-family: $Satoshi;
+                        line-height: 22px;
+                        color: #00000099;
+
+                        @media #{$Mobile} {
+                          font-size: 12px;
+                          line-height: 22px;
+                        }
+ 
+                    }
+                }
+
+                .hero-para4-col2{
+                    border-right: 1px solid #0000001A;
+
+                    @media #{$Mobile} {
+                        border: none;
+                      }
+                    .para4-col2-para1{
+                        margin: 0;
+                        font-size: 40px;
+                        font-weight: 700;
+                        font-family: $Satoshi;
+                        line-height: 54px;
+
+                        @media #{$Mobile} {
+                            font-size: 24px;
+                            line-height: 32.4px;
+   
+                        }
+                    }
+
+                    .para4-col2-para2{
+                        margin: 0;
+                        font-size: 16px;
+                        font-weight: 400;
+                        font-family: $Satoshi;
+                        line-height: 22px;
+                        color: #00000099;
+
+                        @media #{$Mobile} {
+                            font-size: 12px;
+                            line-height: 22px;
+                        }
+                    }
+                }
+
+                .hero-para4-col3{
+                    @media #{$Mobile} {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        padding-top: 7px;  
+                    }
+
+                   
+                    .para4-col3-para1{
+                        margin: 0;
+                        font-size: 40px;
+                        font-weight: 700;
+                        font-family: $Satoshi;
+                        line-height: 54px;
+
+                        @media #{$Mobile} {
+                            font-size: 24px;
+                            line-height: 32.4px;
+   
+                        }
+                    }
+
+                    .para4-col3-para2{
+                        margin: 0;
+                        font-size: 16px;
+                        font-weight: 400;
+                        font-family: $Satoshi;
+                        line-height: 22px;
+                        color: #00000099;
+
+                        @media #{$Mobile} {
+                            font-size: 12px;
+                            line-height: 22px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .hero-main-row-col2{
+            .hero-main-img{
+                width: 100%;
+            }
+        }
+    }
+}

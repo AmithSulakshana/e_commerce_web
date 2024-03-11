@@ -17,7 +17,8 @@ import { loginFail, loginSuccess } from './store/reducers/UserSlice';
 import SingupBar from './components/singupbar/SingupBar';
 import Cart from './pages/cart/Cart';
 import MenShirt from './pages/menShirt/MenShirt';
-
+import { addToCart } from './store/reducers/CartSlice';
+import Token from './components/tokenGenerate/Token';
 
 
 function App() {
@@ -37,6 +38,14 @@ function App() {
                   dispatch(loginSuccess({userName:response.data.userName,id:response.data.id}))
                }
             })
+
+            axios.get("http://localhost:3001/cart/subprice", {
+               headers: { accessToken: localStorage.getItem("accessToken") },
+               params: { }
+           })
+           .then((res) => {
+               dispatch(addToCart({quntity:res.data.totalquntity })) 
+           })
    },[])
 
    const handleSingup = () =>{
@@ -48,7 +57,6 @@ function App() {
        <BrowserRouter>
          {(!user.authStatus && singupShow) && <SingupBar onClick={handleSingup}/>}
           <Navbar/>
-          
           <Routes>
              <Route path='/' element={<Home/>}/>
              <Route path='/brand' element={<Brand/>}/>

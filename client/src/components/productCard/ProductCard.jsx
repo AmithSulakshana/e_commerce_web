@@ -10,7 +10,7 @@ const ProductCard = (props) => {
   return (
     <div className='product-card-main'>
        <Row className='product-card-main-row1'>
-          <img src={productIm} alt=''/>
+          <img className='product-img' src={productIm} alt=''/>
        </Row>
        <Row className='product-card-main-row2'>
           <p className='product-card-para'>{productName}</p>

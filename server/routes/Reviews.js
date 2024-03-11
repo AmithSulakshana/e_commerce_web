@@ -6,7 +6,8 @@ const { validateToken } = require('../middlewares/AuthMiddleware');
 router.get("/:productId", async(req,res) =>{
     const productId = req.params.productId;
     const Review = await Reviews.findAll({where:{ProductId:productId}});
-    res.json(Review);
+    const reviewCount = await Reviews.count({where:{ProductId:productId}})
+    res.json({Review,reviewCount});
 })
 
 router.post("/", validateToken, async(req,res) =>{

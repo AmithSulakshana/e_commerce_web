@@ -168,8 +168,8 @@
         position: absolute;
         right:15px;
         display: flex;
-        padding-top: 10px;
-        gap: 13px;
+       // padding-top: 10px;
+        gap: 7px;
         
 
         @media #{$Mobile} {
@@ -183,14 +183,33 @@
             display: none;
 
             @media #{$Mobile} {
-             display: block;            
+             display: block;
+             margin-top:7px;            
             }
         }
 
-        .nav-cart{
-            height: 24px;
-            width: 24px;
-
+        .cart-num-div{
+            .nav-cart{
+                height: 24px;
+                width: 24px;
+                padding-top: 7px;
+               
+            }
+    
+            .cart-dec{
+                text-decoration: none;
+                color: inherit;
+            }
+    
+            .cart-num{
+                width: 10px;
+                height: 20px;
+                margin-right: 10px;
+                color:$Purple2;
+                font-size: 18px;
+                font-weight: 500;
+    
+            }
         }
 
         .nav-loging{

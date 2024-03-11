@@ -5,14 +5,14 @@
       display: flex;
       justify-content: end;
       gap: 30px;
-      margin-top: 20px;
+      margin-top: 8px;
 
   
       @media #{$Mobile} {
-        margin-top: 60px;
+        margin-top: 10px;
       }
       @media #{$Tablet} {
-        margin-top: 60px;
+        margin-top: 10px;
       }
   
       .swiper-button-prev {
@@ -20,7 +20,6 @@
         width: 46px;
         height: 46px;
         flex-shrink: 0;
-       // background-color: $basewhite5;
         border-radius: 63px;
   
         .ArrowRoundBack {
@@ -28,7 +27,6 @@
           height: 24px;
           flex-shrink: 0;
           font-weight: 50 !important;
-         // color: $baseBlack;
         }
       }
   
@@ -37,16 +35,25 @@
         width: 46px;
         height: 46px;
         flex-shrink: 0;
-       // background-color: $basewhite5;
         border-radius: 63px;
   
         .ArrowRoundForward {
           width: 24px;
           height: 24px;
-          //color: $baseBlack;
         }
       }
     }
+
+    .swiper-slider{
+      width: 400px;
+
+      @media #{$Mobile} {
+           width: 340px;              
+      }
+
+    }
+
+
   
     .swiper-button-prev:after,
     .swiper-button-next:after {

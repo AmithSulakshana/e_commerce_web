@@ -9,6 +9,23 @@ import { IoIosArrowRoundForward, IoIosArrowRoundBack } from "react-icons/io";
 import "swiper/swiper-bundle.css";
 
 export default function App() {
+  const breakpoints = {
+    350:{
+      slidesPerView: 1.1,
+      spaceBetween: 10,
+    },
+    // when window width is >= 768px
+    768: {
+      slidesPerView: 3.2,
+      spaceBetween: 10,
+    },
+    // when window width is >= 992px
+    992: {
+      slidesPerView: 3,
+      spaceBetween: 30,
+    },
+  };
+ 
   return (
     <div className='swiper'>
         <div className="navigate-btn">
@@ -20,9 +37,10 @@ export default function App() {
             </div>
         </div>
       <Swiper
-        slidesPerView={3.4} 
+        slidesPerView={3.3} 
         centeredSlides={true}
         spaceBetween={30}
+        breakpoints={breakpoints}
         grabCursor={true}
         pagination={{
           clickable: true,
@@ -33,19 +51,20 @@ export default function App() {
           }}
         modules={[Pagination,Navigation]}
         className="mySwiper"
+       
       >
        
          
-        <SwiperSlide style={{width:"400px"}}> <CustomerCard rate={4.5} userName="Amith S." comment="very nice" /></SwiperSlide>
-        <SwiperSlide style={{width:"400px"}}> <CustomerCard rate={4.5} userName="Amith S." comment="very nice" /></SwiperSlide>
-        <SwiperSlide style={{width:"400px"}}> <CustomerCard rate={4.5} userName="Amith S." comment="very nice" /></SwiperSlide>
-        <SwiperSlide style={{width:"400px"}}> <CustomerCard rate={4.5} userName="Amith S." comment="very nice" /></SwiperSlide>
-        <SwiperSlide style={{width:"400px"}}> <CustomerCard rate={4.5} userName="Amith S." comment="very nice" /></SwiperSlide>
-        <SwiperSlide style={{width:"400px"}}> <CustomerCard rate={4.5} userName="Amith S." comment="very nice" /></SwiperSlide>
-        <SwiperSlide style={{width:"400px"}}> <CustomerCard rate={4.5} userName="Amith S." comment="very nice" /></SwiperSlide>
-        <SwiperSlide style={{width:"400px"}}> <CustomerCard rate={4.5} userName="Amith S." comment="very nice" /></SwiperSlide>
-        <SwiperSlide style={{width:"400px"}}> <CustomerCard rate={4.5} userName="Amith S." comment="very nice" /></SwiperSlide>
-        <SwiperSlide style={{width:"400px"}}> <CustomerCard rate={4.5} userName="Amith S." comment="very nice" /></SwiperSlide>
+        <SwiperSlide className='swiper-slider' > <CustomerCard rate={4.5} userName="Amith S." comment="very nice" /></SwiperSlide>
+        <SwiperSlide className='swiper-slider' > <CustomerCard rate={4.5} userName="Amith S." comment="very nice" /></SwiperSlide>
+        <SwiperSlide className='swiper-slider' > <CustomerCard rate={4.5} userName="Amith S." comment="very nice" /></SwiperSlide>
+        <SwiperSlide className='swiper-slider' > <CustomerCard rate={4.5} userName="Amith S." comment="very nice" /></SwiperSlide>
+        <SwiperSlide className='swiper-slider' > <CustomerCard rate={4.5} userName="Amith S." comment="very nice" /></SwiperSlide>
+        <SwiperSlide className='swiper-slider'> <CustomerCard rate={4.5} userName="Amith S." comment="very nice" /></SwiperSlide>
+        <SwiperSlide className='swiper-slider'> <CustomerCard rate={4.5} userName="Amith S." comment="very nice" /></SwiperSlide>
+        <SwiperSlide className='swiper-slider'> <CustomerCard rate={4.5} userName="Amith S." comment="very nice" /></SwiperSlide>
+        <SwiperSlide className='swiper-slider'> <CustomerCard rate={4.5} userName="Amith S." comment="very nice" /></SwiperSlide>
+        <SwiperSlide className='swiper-slider'> <CustomerCard rate={4.5} userName="Amith S." comment="very nice" /></SwiperSlide>
 
         
        

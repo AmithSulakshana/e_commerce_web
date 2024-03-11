@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import Avatar from '../avatar/Avatar'
 import { useNavigate } from 'react-router-dom'
 import { loginFail } from '../../store/reducers/UserSlice'
+import { addToCart } from '../../store/reducers/CartSlice'
 
 
 const Dropdownmen = ({onMouseEnter,onMouseLeave}) => {
@@ -13,6 +14,7 @@ const Dropdownmen = ({onMouseEnter,onMouseLeave}) => {
     const handleLogout = () =>{
         localStorage.removeItem('accessToken')
         dispatch(loginFail())
+        dispatch(addToCart({quntity:0}))
         navigate('/')
       }
 

@@ -1,0 +1,60 @@
+.newArrival-main{
+    padding-left: 35px;
+    padding-right: 35px;
+
+    @media #{$Mobile} {
+        padding-left: 0px;
+        padding-right: 0px;                  
+    }
+
+    @media #{$Tablet} {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .newArrival-main-row{
+        margin: 0;
+        
+        .row1-para1{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            font-size: 48px;
+            font-weight: 700;
+            font-family: $IntegralCF;
+            color: black;
+
+            @media #{$Mobile} {
+              font-size: 32px; 
+              padding-top: 10px;          
+            }
+
+        }
+    }
+
+    .newArrival-main-row2{
+        margin: 0;
+        padding-top: 10px;
+       
+
+    }
+
+    .newArrival-main-row3{
+        margin: 0 auto;
+        margin-top: 20px;
+        width: 218px;
+        height: 52px;
+        border: 1px solid;
+        border-radius: 62px;
+
+        .newArrival-para1-buton{
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+    }
+}

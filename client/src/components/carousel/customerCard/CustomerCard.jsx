@@ -4,8 +4,8 @@ import StarRatings from 'react-star-ratings'
 import truemark from './assest/truemark.png';
 
 const CustomerCard = (props) => {
-    const {rate,userName,comment,width} = props
-    const widthdec= {width:width||'400px'}
+    const {rate,userName,comment,width,date} = props
+    const widthdec= {width:width||'100%'}
     
   return (
     <div className='customer-card-main' style={widthdec} >
@@ -28,6 +28,9 @@ const CustomerCard = (props) => {
         <Row className='customer-row3'>
             <p className='customer-row3-para'>{comment}</p>
         </Row>
+        {date&&
+            <p className='m-0'>Posted on {date}</p>
+        }
     </div>
   )
 }

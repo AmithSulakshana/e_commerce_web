@@ -1,0 +1,14 @@
+.happy-main{
+    .happy-para{
+        margin: 0;
+        font-size: 48px;
+        font-weight: 700;
+        font-family: $IntegralCF;
+        padding-left: 5%;
+
+        @media #{$Mobile} {
+             font-size: 32px;            
+        }
+
+    }
+}
