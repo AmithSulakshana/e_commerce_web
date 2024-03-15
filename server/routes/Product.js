@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const {Products} = require('../models');
+const {Products,Reviews} = require('../models');
 const { Op } = require('sequelize');
 
 
@@ -14,6 +14,27 @@ router.get("/byId/:id",async(req,res) =>{
     const product = await Products.findByPk(id);
     //const sameProduct = await Products.findAll({where:{ProductsName:product.ProductsName}})
     res.json(product);
+})
+
+router.get("/catagory",async(req,res) =>{
+    const casual = await Products.findAll({
+        where:{ProductsStyle:"casual"}
+    })
+    res.json(casual)
+})
+
+router.get("/filterCS/:productId",async(req,res)=>{
+    const productId = req.params.productId;
+    const product = await Products.findByPk(productId)
+    const allProduct = await Products.findAll({
+        where:{ProductsName:product.ProductsName}
+    })
+
+    const uniqueColors = [...new Set(allProduct.map(product => product.colour))];
+    const uniqueSize = [...new Set(allProduct.map(product => product.size))]
+    res.json({colours:uniqueColors,sizes:uniqueSize})
+
+    
 })
 
 router.get("/detailsearch/:id",async(req,res)=>{
@@ -49,6 +70,38 @@ router.post("/",async(req,res) =>{
     await Products.create(product);
     res.json("item add sucessfully");
 })
+
+router.put("/:productId", async (req, res) => {
+    try {
+        const productId = req.params.productId;
+        const review = await Reviews.findAll({where:{ProductId:productId}})
+        let totalRating = 0;
+        let reviewCount = review.length;
+
+        for(let i =0; i<review.length; i++){
+          totalRating +=review[i].rate;
+        }
+        const meanRate = reviewCount>0 ? totalRating/reviewCount : 0;
+        
+
+        const product = await Products.findByPk(productId);
+
+        if (!product) {
+            return res.status(404).json({ error: "Product not found" });
+        }
+
+        product.rate = meanRate;
+
+        await product.save();
+
+        res.json({ message: "Rate updated successfully", product });
+    } catch (error) {
+        res.status(500).json({ error: "Internal server error" });
+    }
+});
+
+
+
 
 router.get("/search", async (req, res) => {
     try {

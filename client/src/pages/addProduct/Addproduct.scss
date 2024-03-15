@@ -1,0 +1,39 @@
+.addproduct-main{
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 10px;
+
+    .addproduct-para1{
+        margin: 0;
+        font-size: 32px;
+        font-weight: 500;
+    }
+    .form-main{
+        width: 50%;
+        border: 1px solid;
+        border-radius: 20px;
+        padding: 10px;
+       
+            .form-label1{
+                font-size: 18px;
+                font-weight: 500;
+                width: 25%;
+            }
+            .error-input{
+                border: 1px solid red;
+                outline: none;
+                margin: 5px;
+                width: 73%;
+            }
+            .error-input2{
+                outline: none;
+                margin: 5px;
+                width: 73%;
+            }
+        
+        
+        .error1{
+            color: red;
+        }
+    }
+}

@@ -13,38 +13,21 @@ const MenShirt = () => {
     const[product,setProduct] = useState();
     const dispatch = useDispatch()
     const quan = useSelector(store=>store.productSlice.quantity)
+    const color = useSelector(store=>store.productSlice.colour)
+    const size = useSelector(store=>store.productSlice.size)
     const numOfItems = useSelector(store=>store.cartSlice.numberOfItem)
-  
-    const handleClickRed = ()=>{
-      axios.get(`http://localhost:3001/product/detailsearch/${id}`,{
-        params:{color:'red',size:product.size}
-      }).then((res)=>{
-        const updatedProduct = res.data;
-            setProduct(updatedProduct); 
-          
-      })
-    }
 
-    const handleClickBlue = ()=>{
+    useEffect(()=>{
       axios.get(`http://localhost:3001/product/detailsearch/${id}`,{
-        params:{color:'blue',size:product.size}
-      }).then((res)=>{
-        const updatedProduct = res.data;
-            setProduct(updatedProduct); 
-          
-      })
-    }
+            params:{color:color,size:size}
+          }).then((res)=>{
+            const updatedProduct = res.data;
+                setProduct(updatedProduct);
+                  
+          })
+    },[color,size])
+ 
 
-    const handleSmall = ()=>{
-      axios.get(`http://localhost:3001/product/detailsearch/${id}`,{
-        params:{color:product.colour,size:"sm"}
-      }).then((res)=>{
-        const updatedProduct = res.data;
-            setProduct(updatedProduct); 
-          
-      })
-    }
-    
     useEffect(() => {
       axios.get(`http://localhost:3001/product/byId/${id}`).then((res) => {
           setProduct(res.data);
@@ -75,7 +58,8 @@ const MenShirt = () => {
       return <div>Loading...</div>;
     }
    
-      
+ console.log(product)
+    
   return (
     <div>
       <PathNarrow padinLeft='50px'/>
@@ -87,12 +71,9 @@ const MenShirt = () => {
                  price = {product.Price}
                  newPrice = {product.newPrice}
                  productName ={product.ProductsName}
-                 rating={4.5}
+                 rating={product.rate}
                  colour={product.colour}
                  size={product.size}
-                 clickRed={handleClickRed}
-                 clickBlue = {handleClickBlue}
-                 clickSmall={handleSmall}
                  clickAddToCart={handleAddToCart}
                />
           </div>

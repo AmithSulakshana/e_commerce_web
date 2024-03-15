@@ -8,6 +8,7 @@ import CustomerCard from '../carousel/customerCard/CustomerCard';
 import axios from 'axios';
 import Rating from '@mui/material/Rating';
 import Button from '@mui/material/Button';
+import NewArriavals from '../../pages/home/newArrival/NewArrival'
 
 
 
@@ -64,7 +65,9 @@ const Review = () => {
         update()
         setCom(false)
         setRating(true)
-        
+        axios.put(`http://localhost:3001/product/${id}`).then((res)=>{
+          console.log(res.data)
+        })
       })
     }
 
@@ -124,7 +127,7 @@ const Review = () => {
          <Row className='review-row3'>
             {review.slice(0, displayedComments).map((val, index) => {
               return (
-                  <Col className='p-1' key={index} xl={6}>
+                  <Col className='p-1' key={index} xl={6} lg={6}>
                       <CustomerCard
                           rate={val.rate}
                           userName={val.userName}
@@ -155,8 +158,10 @@ const Review = () => {
         <Button color="secondary" onClick={handleAddComment}>Add Comment</Button>
       </div>
       }
-
-     
+      
+      <NewArriavals
+        headline='YOU MIGHT ALSO LIKE'
+      />
      
     </div>
   )

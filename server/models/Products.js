@@ -43,10 +43,11 @@ module.exports = (Sequelize,DataTypes) =>{
         gender:{
             type:DataTypes.STRING,
             allowNull: false,
-        }
-
-
-        
+        },
+        rate:{
+            type:DataTypes.FLOAT(2, 1),
+            allowNull: false,
+        },  
 
     });
 

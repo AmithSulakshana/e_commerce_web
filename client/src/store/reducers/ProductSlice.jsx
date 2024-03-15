@@ -3,7 +3,9 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
 
     product:{},
-    quantity:1
+    quantity:1,
+    colour:'',
+    size:''
 
 }
 
@@ -18,9 +20,15 @@ const ProductSlice = createSlice({
         },
         addQuantity:(state,action)=>{
            state.quantity=action.payload.quantity
+        },
+        addColour:(state,action)=>{
+            state.colour=action.payload.colour
+        },
+        addSize:(state,action)=>{
+            state.size=action.payload.size
         }
     }
 })
 
-export const {addProduct,addQuantity} = ProductSlice.actions
+export const {addProduct,addQuantity,addColour,addSize} = ProductSlice.actions
 export default ProductSlice.reducer

@@ -1,0 +1,42 @@
+.casual-main{
+    width: 93%;
+    margin: 0 auto;
+    min-height: 1100px;
+
+    .filter-menu{
+        display: none;
+
+        @media #{$Mobile} {
+          display: block;               
+        }
+
+        @media #{$Tablet} {
+             display: block;            
+        }
+
+    }
+    
+    .casual-div1{
+        display: flex;
+        padding-top: 10px;
+        gap: 10px;
+
+        .casual-div1-div1{
+            padding-left: 305px;
+
+            @media #{$Mobile} {
+               padding: 0;          
+            }
+
+            @media #{$Tablet} {
+                padding: 0;        
+            }
+
+            .casual-div1-para1{
+                font-size: 32px;
+                font-weight: 700;
+                font-family: $Satoshi;
+            }
+        }
+    }
+}

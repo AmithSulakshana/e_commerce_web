@@ -5,6 +5,7 @@ import casual from './assest/casual.png';
 import formal from './assest/formal.png';
 import gym from './assest/gym.png';
 import party from './assest/party.png';
+import { Link } from 'react-router-dom';
 
 function DressStyle() {
   return (
@@ -12,7 +13,7 @@ function DressStyle() {
        <p className='dress-main-header'>BROWSE BY DRESS STYLE</p>
        <Row className='dress-row1'>
             <Col xl={5} lg={5}>
-               <img className='dress-im1' src={casual} alt=''/>
+              <Link to='/Casual'><img className='dress-im1' src={casual} alt=''/></Link> 
             </Col>
             <Col xl={7} lg={7}>
                 <img className='dress-im2' src={formal} alt=''/> 
