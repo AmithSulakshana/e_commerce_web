@@ -22,5 +22,6 @@ module.exports = (Sequelize,DataTypes) =>{
 
     })
 
+
     return Reviews;
 }

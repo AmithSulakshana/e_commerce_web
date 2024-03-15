@@ -19,6 +19,8 @@ import Cart from './pages/cart/Cart';
 import MenShirt from './pages/menShirt/MenShirt';
 import { addToCart } from './store/reducers/CartSlice';
 import Token from './components/tokenGenerate/Token';
+import Casual from './pages/category/casual/Casual';
+import AddProduct from './pages/addProduct/AddProduct';
 
 
 function App() {
@@ -67,6 +69,8 @@ function App() {
              <Route path='/login' element={<Logging/>}/>
              <Route path ='/cart' element={<Cart/>}/>
              <Route path ='/men/shirt/:id' element={<MenShirt/>}/>
+             <Route path='/Casual' element={<Casual/>} />
+             <Route path='/addproduct' element={<AddProduct/>} />
 
           </Routes>
           <Footer/>

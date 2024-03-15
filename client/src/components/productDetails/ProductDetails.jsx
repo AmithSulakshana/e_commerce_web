@@ -1,24 +1,38 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Col from 'react-bootstrap/esm/Col';
 import Row from 'react-bootstrap/esm/Row';
 import StarRating from '../productCard/StarRating';
 import {useDispatch, useSelector } from 'react-redux';
-import { addQuantity } from '../../store/reducers/ProductSlice';
+import { addColour, addQuantity, addSize } from '../../store/reducers/ProductSlice';
 import tik from './assest/tik.png';
 import minus from '../shoppingCart/assest/minus.png'
 import plus from '../shoppingCart/assest/plus.png'
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
 
 const ProductDetails = (props) => {
-    const{backImg,frontImg,sideImg,price,newPrice,rating,productName,colour,size,clickRed,clickBlue,
-    clickSmall,clickAddToCart} = props;
+    const{backImg,frontImg,sideImg,price,newPrice,rating,productName,colour,size,
+    clickAddToCart} = props;
     const rate = Math.floor(((newPrice - price) / price) * 100);
     const[lagreImage,setLargeImage] = useState(backImg)
     const[selectedImg,setSelectedImg] = useState(backImg);
     const[selectedColour,setSelectedColour] = useState(colour)
     const[selectedSize,setSelectedSize] = useState(size);
+    const[colours,setColours] = useState();
+    const[sizes,setSizes] = useState();
+    const[loading,setLoading] = useState(true)
 
     const quan = useSelector(store=>store.productSlice.quantity)
     const dispatch = useDispatch();
+    const {id} = useParams();
+
+    useEffect(()=>{
+        axios.get(`http://localhost:3001/product//filterCS/${id}`).then((res)=>{
+            setColours(res.data.colours)
+            setSizes(res.data.sizes)
+            setLoading(false)
+        })
+    },[])
     
 
     const handleChangeImg = (img) =>{
@@ -26,20 +40,17 @@ const ProductDetails = (props) => {
         setSelectedImg(img)
     }
 
-    const handleRed = () =>{
-        setSelectedColour("red")
-        clickRed()
+    const handleColor = (val) =>{
+        setSelectedColour(val)
+        dispatch(addColour({colour:val}))
+       // clickRed()
        
     }
 
-    const handleBlue = () =>{
-        setSelectedColour("blue")
-        clickBlue()
-    }
-
-    const handleSm = () =>{
-        setSelectedSize("sm")
-        clickSmall()
+    const handleSize = (val) =>{
+        setSelectedSize(val)
+        dispatch(addSize({size:val}))
+       // clickSmall()
     }
 
     const handleReduce = () =>{
@@ -53,6 +64,10 @@ const ProductDetails = (props) => {
         const quant = quan+1;
         dispatch(addQuantity({quantity:quant}))
     }
+
+  if(loading){
+    return <div>Loading...</div>;
+  }
  
   return (
     <div className='product-details-main'>
@@ -88,20 +103,24 @@ const ProductDetails = (props) => {
                 <hr></hr>
                 <p className='row1-col2-para3'>Select Colors</p>
                 <div className='col2-div4'>
-                    <button className='col2-div4-bt1' style={{background:'red'}} onClick={handleRed}>
-                        {selectedColour === 'red' ?  <img src={tik} alt=''/>:'' }
+                    {colours.map((val,index)=>(
+                        <button className='col2-div4-bt1' style={{background:val}} key={index} onClick={()=>handleColor(val)}>
+                        {selectedColour === val ?  <img src={tik} alt=''/>:'' }
                     </button>
-                    <button className='col2-div4-bt1' style={{background:'blue'}} onClick={handleBlue}>
-                        {selectedColour === 'blue' ?  <img src={tik} alt=''/>:'' }
-                    </button>
+                    ))
+
+                    }
+                    
                 </div>
                 <hr></hr>
                 <p className='col2-div5'>Choose Size</p>
                 <div className='col2-div6'>
-                    <button className={`col2-div6-btn1 ${selectedSize==="sm" ? 'col2-div6-btn1-click' :''}`} onClick={handleSm}>Small</button>
-                    <button className={`col2-div6-btn1 ${selectedSize==="md" ? 'col2-div6-btn1-click' :''}`} onClick={()=>setSelectedSize("md")}>Medium</button>
-                    <button className={`col2-div6-btn1 ${selectedSize==="lg" ? 'col2-div6-btn1-click' :''}`} onClick={()=>setSelectedSize("lg")}>Large</button>
-                    <button className={`col2-div6-btn1 ${selectedSize==="xl" ? 'col2-div6-btn1-click' :''}`} onClick={()=>setSelectedSize("xl")}>X-Large</button>
+                 {sizes.map((val,index)=>(
+                        <button key={index} className={`col2-div6-btn1 ${selectedSize===val ? 'col2-div6-btn1-click' :''}`} onClick={()=>handleSize(val)}>{val}</button>
+                 ))
+
+                 }
+               
                 </div>
                 <hr></hr>
                 <div className='col2-div7'>

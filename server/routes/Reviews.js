@@ -10,6 +10,7 @@ router.get("/:productId", async(req,res) =>{
     res.json({Review,reviewCount});
 })
 
+
 router.post("/", validateToken, async(req,res) =>{
     const review = req.body;
     review.userName = req.user.userName;

@@ -103,7 +103,7 @@ router.get("/subprice", validateToken, async (req, res) => {
         
         const totalPriceWithFee = totalPrice-discountval + deliveryFee - addPromo;
 
-        res.json({ totalPrice: totalPriceWithFee,subPrice:totalPrice,dicountvalue:discountval,totalquntity:totalQuntity});
+        res.json({ totalPrice: totalPriceWithFee,subPrice:totalPrice,dicountvalue:discountval.toFixed(2),totalquntity:totalQuntity});
     } catch (error) {
         console.error('Error fetching cart items:', error);
         res.status(500).json({ error: 'Internal Server Error' });

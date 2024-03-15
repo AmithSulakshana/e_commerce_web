@@ -1,0 +1,23 @@
+.filter-narrow-main{
+    .filter-row2{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+
+        .filter-row2-para1{
+            margin: 0;
+            font-size: 16px;
+            font-weight: 400;
+        }
+
+        .filter-row2-im1{
+            width: 16px;
+            height: 16px;
+        }
+    }
+
+    .filter-narrow-para{
+        padding-left: 10px;
+    }
+}

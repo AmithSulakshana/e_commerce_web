@@ -17,6 +17,11 @@
            color: #00000099;
            border-bottom: 1px #0000001A;
            cursor: pointer;
+
+           @media #{$Mobile} {
+                font-size: 16px;  
+                      
+           }
         }
 
         .border-bottom{
@@ -35,16 +40,30 @@
 
         .review-row2-div1{
              display: flex;
+
+             @media #{$Mobile} {
+              padding-top: 5px;           
+             }
             .row2-div1-para1{
                 margin: 0;
                 font-size: 24px;
                 font-weight: 700;
+
+                @media #{$Mobile} {
+                     font-size: 18px; 
+                     padding-top: 5px;   
+                }
                 
             }
         }
         .review-row2-div2{
             display: flex;
             gap: 10px;
+
+            @media #{$Mobile} {
+                 gap: 5px; 
+                        
+            }
 
             .row2-div2-div1{
                 display: flex;
@@ -69,6 +88,10 @@
                 padding-left: 20px;
                 padding-right: 20px;
 
+                @media #{$Mobile} {
+                    display: none;  
+                }
+
                 .arow-img{
                     width: 16px;
                     height: 16px;
@@ -90,6 +113,11 @@
                 font-weight: 500;
                 font-family: $Satoshi;
                 cursor: pointer;
+
+                @media #{$Mobile} {
+                    width: 113px; 
+                    font-size: 14px;    
+                }
             }
         }
         
