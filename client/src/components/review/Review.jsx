@@ -8,7 +8,7 @@ import CustomerCard from '../carousel/customerCard/CustomerCard';
 import axios from 'axios';
 import Rating from '@mui/material/Rating';
 import Button from '@mui/material/Button';
-import NewArriavals from '../../pages/home/newArrival/NewArrival'
+
 
 
 
@@ -159,9 +159,6 @@ const Review = () => {
       </div>
       }
       
-      <NewArriavals
-        headline='YOU MIGHT ALSO LIKE'
-      />
      
     </div>
   )

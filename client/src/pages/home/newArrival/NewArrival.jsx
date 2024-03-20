@@ -37,6 +37,10 @@ const NewArrival = (props) => {
         }
     };
 
+    const handleViewNewAvailable = () =>{
+        navigate('/newarriaval')
+    }
+
     if (loading) {
         return <p>Loading...</p>;
     }
@@ -84,7 +88,7 @@ const NewArrival = (props) => {
                 ))}
             </Row>
 
-            <Row className='newArrival-main-row3'>
+            <Row className='newArrival-main-row3' onClick={handleViewNewAvailable}>
                 <p className='newArrival-para1-buton'>View All</p>
             </Row>
             <hr />

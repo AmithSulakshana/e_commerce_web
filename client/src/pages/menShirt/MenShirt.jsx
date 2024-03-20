@@ -7,30 +7,19 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addProduct } from '../../store/reducers/ProductSlice';
 import { addToCart } from '../../store/reducers/CartSlice';
 import Review from '../../components/review/Review';
+import NewArriavals from '../home/newArrival/NewArrival';
+import YouMightLike from '../../components/youmightlike/YouMightLike';
 
 const MenShirt = () => {
     const{id} = useParams();
-    const[product,setProduct] = useState();
     const dispatch = useDispatch()
     const quan = useSelector(store=>store.productSlice.quantity)
-    const color = useSelector(store=>store.productSlice.colour)
-    const size = useSelector(store=>store.productSlice.size)
+    const prod = useSelector(store=>store.productSlice.product)
     const numOfItems = useSelector(store=>store.cartSlice.numberOfItem)
 
-    useEffect(()=>{
-      axios.get(`http://localhost:3001/product/detailsearch/${id}`,{
-            params:{color:color,size:size}
-          }).then((res)=>{
-            const updatedProduct = res.data;
-                setProduct(updatedProduct);
-                  
-          })
-    },[color,size])
- 
-
+   
     useEffect(() => {
       axios.get(`http://localhost:3001/product/byId/${id}`).then((res) => {
-          setProduct(res.data);
           dispatch(addProduct({product:res.data}))
       
       }).catch(error => {
@@ -40,7 +29,7 @@ const MenShirt = () => {
 
     const handleAddToCart = () => {
       axios.post("http://localhost:3001/cart", {
-          ProductId: product.id,
+          ProductId: prod.id,
           quntity:quan
       }, {
           headers: {
@@ -54,30 +43,34 @@ const MenShirt = () => {
       });
     };
 
-    if (!product) {
+    if (!prod) {
       return <div>Loading...</div>;
     }
    
- console.log(product)
+ 
     
   return (
     <div>
       <PathNarrow padinLeft='50px'/>
           <div>
                <ProductDetails
-                 backImg={product.backImage}
-                 frontImg = {product.frontImage}
-                 sideImg={product.sideImage}
-                 price = {product.Price}
-                 newPrice = {product.newPrice}
-                 productName ={product.ProductsName}
-                 rating={product.rate}
-                 colour={product.colour}
-                 size={product.size}
+                 backImg={prod.backImage}
+                 frontImg = {prod.frontImage}
+                 sideImg={prod.sideImage}
+                 price = {prod.Price}
+                 newPrice = {prod.newPrice}
+                 productName ={prod.ProductsName}
+                 rating={prod.rate}
+                 colour={prod.colour}
+                 size={prod.size}
                  clickAddToCart={handleAddToCart}
                />
+              
           </div>
           <Review/>
+          <YouMightLike
+            catagory="men-tshirt"
+          />
         
      
     </div>

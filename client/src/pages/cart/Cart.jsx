@@ -7,13 +7,15 @@ import pin from './assest/pin.png';
 import apparow from './assest/app-arrow.png';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
-import { addToCart } from '../../store/reducers/CartSlice';
+import { addToCart, addTotalPrice } from '../../store/reducers/CartSlice';
+import { useNavigate } from 'react-router-dom';
 
 function Cart() {
  const[cart,setCart] = useState([]);
  const[price,setPrice] = useState({});
  const dispatch = useDispatch()
  const user = useSelector(store=>store.userSlice)
+ const navigate = useNavigate()
  const deliveryFee=20;
  const discount = 10;
 
@@ -86,11 +88,16 @@ function Cart() {
     .then((res) => {
         setPrice(res.data);
         dispatch(addToCart({quntity:res.data.totalquntity })) 
+        dispatch(addTotalPrice({totalPrice:res.data.totalPrice}))
     })
     .catch(error => {
         console.error('Error fetching subtotal:', error);
     });
 
+  }
+
+  const handleChekout = () =>{
+      navigate("/checkout")
   }
    
   
@@ -168,7 +175,7 @@ function Cart() {
                     </div>
                  </div>
 
-                 <div className='col2-row7'>
+                 <div className='col2-row7' onClick={handleChekout}>
                       <span className='col2-row7-text'>Go to Checkout</span>
                       <img className='col2-row7-img' src={apparow} alt=''/>
                  </div>
