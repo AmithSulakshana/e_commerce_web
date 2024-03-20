@@ -1,0 +1,239 @@
+.check-out-main{
+    padding-top: 28px;
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 45px;
+    .check-out-main-row1{
+        display: flex;
+        gap: 15px;
+
+        .check-out-main-para1{
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: 700;
+
+        }
+
+        .check-out-im1{
+            width: 85px;
+            height: 60px;
+        }
+
+    }
+
+    .check-out-row2{
+        display: flex;
+        gap: 20px;
+
+        .check-row2-div1{
+            width: 608px;
+            min-height: 366px;
+            border: 1px solid;
+            border-radius: 10px;
+            padding: 20px;
+
+            .check-row2-div1-para1{
+                font-size: 18px;
+                color:#0960AE;
+                font-weight: 500;
+            }
+
+            .check-row2-div1-para2{
+                margin: 0;
+                display: flex;
+                align-items: center;
+                justify-content: end;
+                font-size: 12px;
+                color:#0960AE;
+
+            }
+
+            .check-row2-div1-row3{
+                display: flex;
+
+                .check-crd-type{
+                    width: 150px;
+                    font-size: 14px;
+                    font-weight: 600;
+                    color:#0960AE ;
+                }
+
+                .check-input1{
+                    display: flex;
+                    gap: 50px;
+                    .check-input-im{
+                        width: 50px;
+                        height: 30px;
+                    }
+                    
+                }
+            }
+
+            .check-row2-div1-row4{
+                margin-top: 25px;
+                display: flex;
+
+                .check-crd-num{
+                    width: 150px;
+                    font-size: 14px;
+                    font-weight: 600;
+                    color:#0960AE ;
+                }
+                .check-crd-input{
+                    width: 160px;
+                    height: 30px;
+                }
+
+                .error{
+                    border: 1px solid red;
+                }
+                
+            }
+
+            .error-message{
+                color: red;
+                padding-left: 150px;
+                font-size: 12px;
+            }
+
+            .error-message2{
+                color: red;
+                padding-left: 15px;
+                font-size: 12px;
+            }
+
+            .check-row2-div1-row5{
+                display: flex;
+                margin-top: 25px;
+            
+                .check-crd-month{
+                    width: 150px;
+                    font-size: 14px;
+                    font-weight: 600;
+                    color:#0960AE ;
+                }
+
+                .check-input2{
+                    width: 73px;
+                    height: 32px;
+                }
+
+                
+                .error1{
+                    border: 1px solid red; 
+                }
+
+                .check-crd-detail{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 150px;
+                    font-size: 14px;
+                    font-weight: 600;
+                    color:#0960AE ;
+                }
+            }
+
+            .check-row2-div1-row6{
+                padding-top: 5px;
+                padding-left: 150px;
+                font-size: 10px;
+                font-weight: 600;
+                color:#0960AE ;
+            }
+
+            .check-row2-div1-row7{
+                display: flex;
+                padding-top: 10px;
+
+                .check-cvn{
+                    width: 150px;
+                    font-size: 14px;
+                    font-weight: 600;
+                    color:#0960AE ;
+                }
+
+                .check-input3{
+                    width: 60px;
+                    height: 30px;
+                }
+
+                .error3{
+                    border: 1px solid red;
+                }
+
+                .check-cvn-img{
+                    width: 60px;
+                    height: 37px;
+                }
+
+            }
+
+            .check-row2-div1-row8{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: 10px;
+
+                .check-cancel{
+                    border: 1px solid #D5D5D5;
+                    border-radius: 5px;
+                    width: 100px;
+                    height: 30px;
+                    background-color: #D5D5D5;
+                    color: black;
+                }
+                .check-pay{
+                    border: 1px solid;
+                    border-radius: 5px;
+                    width: 100px;
+                    height: 30px;
+                    background-color: #0960AE;
+                    color: white;
+                }
+            }
+        }
+
+        .check-row2-div2{
+            width: 266px;
+            height: 173px;
+            padding: 20px;
+            border: 1px solid;
+            border-radius: 10px;
+           
+            .check-row2-div2-para1{
+                margin: 0;
+                font-size: 16px;
+                font-weight: 600;
+                color:#0960AE;
+
+            }
+
+            .check-price{
+                width: 224px;
+                height: 66px;
+                background-color: #E6E7E8;
+                padding: 5px;
+
+                .check-total{
+                    margin: 0;
+                    font-size: 14px;
+                    font-weight: 600;
+                    color:#0960AE;
+                }
+
+                .check-total-price{
+                    display: flex;
+                    align-items: center;
+                    justify-content: end;
+                    font-weight: 600;
+                    color:#0960AE;
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+}

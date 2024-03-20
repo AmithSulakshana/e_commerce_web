@@ -4,7 +4,7 @@ import Navbar from './components/navbar/Navbar';
 import Brand from './pages/Brand';
 import Home from './pages/home/Home';
 import { BrowserRouter, Route, Routes } from "react-router-dom"
-import NewArriavals from './pages/NewArriavals';
+import NewArriavals from './pages/newArriavals/NewArriavals';
 import OnSale from './pages/OnSale';
 import Men from './pages/Men';
 import Footer from './components/footer/Footer';
@@ -21,6 +21,7 @@ import { addToCart } from './store/reducers/CartSlice';
 import Token from './components/tokenGenerate/Token';
 import Casual from './pages/category/casual/Casual';
 import AddProduct from './pages/addProduct/AddProduct';
+import CheckOut from './pages/checkout/CheckOut';
 
 
 function App() {
@@ -71,6 +72,7 @@ function App() {
              <Route path ='/men/shirt/:id' element={<MenShirt/>}/>
              <Route path='/Casual' element={<Casual/>} />
              <Route path='/addproduct' element={<AddProduct/>} />
+             <Route path='/checkout' element={<CheckOut/>}/>
 
           </Routes>
           <Footer/>

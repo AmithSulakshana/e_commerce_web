@@ -1,0 +1,34 @@
+.you-might-main{
+    padding-left: 35px;
+    padding-right: 35px;
+
+    .you-might-row1{
+        margin: 0;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 48px;
+        font-weight: 700;
+        font-family: $IntegralCF;
+        color: black;
+    }
+
+    .you-might-row2{
+        margin: 0;
+    }
+
+    .you-might-row3{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        margin-top: 20px;
+        width: 218px;
+        height: 52px;
+        border: 1px solid;
+        border-radius: 62px;
+        font-size: 16px;
+        font-weight: 500;
+    }
+}

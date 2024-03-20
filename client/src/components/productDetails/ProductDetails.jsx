@@ -3,7 +3,7 @@ import Col from 'react-bootstrap/esm/Col';
 import Row from 'react-bootstrap/esm/Row';
 import StarRating from '../productCard/StarRating';
 import {useDispatch, useSelector } from 'react-redux';
-import { addColour, addQuantity, addSize } from '../../store/reducers/ProductSlice';
+import { addProduct, addQuantity} from '../../store/reducers/ProductSlice';
 import tik from './assest/tik.png';
 import minus from '../shoppingCart/assest/minus.png'
 import plus from '../shoppingCart/assest/plus.png'
@@ -13,6 +13,7 @@ import axios from 'axios';
 const ProductDetails = (props) => {
     const{backImg,frontImg,sideImg,price,newPrice,rating,productName,colour,size,
     clickAddToCart} = props;
+    const product = useSelector(store=>store.productSlice.product)
     const rate = Math.floor(((newPrice - price) / price) * 100);
     const[lagreImage,setLargeImage] = useState(backImg)
     const[selectedImg,setSelectedImg] = useState(backImg);
@@ -21,6 +22,7 @@ const ProductDetails = (props) => {
     const[colours,setColours] = useState();
     const[sizes,setSizes] = useState();
     const[loading,setLoading] = useState(true)
+   
 
     const quan = useSelector(store=>store.productSlice.quantity)
     const dispatch = useDispatch();
@@ -33,6 +35,7 @@ const ProductDetails = (props) => {
             setLoading(false)
         })
     },[])
+
     
 
     const handleChangeImg = (img) =>{
@@ -42,15 +45,27 @@ const ProductDetails = (props) => {
 
     const handleColor = (val) =>{
         setSelectedColour(val)
-        dispatch(addColour({colour:val}))
-       // clickRed()
+        axios.get(`http://localhost:3001/product/detailsearch/${id}`,{
+            params:{color:val,size:product.size}
+          }).then((res)=>{
+            const updatedProduct = res.data;
+            dispatch(addProduct({product:updatedProduct}))
+                  
+          })
+        
        
     }
 
     const handleSize = (val) =>{
         setSelectedSize(val)
-        dispatch(addSize({size:val}))
-       // clickSmall()
+        axios.get(`http://localhost:3001/product/detailsearch/${id}`,{
+            params:{color:product.colour,size:val}
+          }).then((res)=>{
+            const updatedProduct = res.data;
+            dispatch(addProduct({product:updatedProduct}))
+                  
+          })
+       
     }
 
     const handleReduce = () =>{
@@ -68,6 +83,8 @@ const ProductDetails = (props) => {
   if(loading){
     return <div>Loading...</div>;
   }
+
+  
  
   return (
     <div className='product-details-main'>
