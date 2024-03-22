@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import mailicon from './assest/mailicon.png';
@@ -11,8 +11,19 @@ import twitter from './assest/twitter.png';
 import facebook from './assest/facebook.png';
 import insta from './assest/insta.png';
 import git from './assest/git.png';
+import axios from 'axios';
 
 const Footer = () => {
+    const[email,setEmail] = useState('')
+
+    const handleSubscribe = () =>{
+        axios.post('http://localhost:3001/mail',{
+            email:email
+        }).then((res)=>{
+            alert("subscribe successfully")
+            setEmail('')
+        })
+    }
   return (
     <div className='footer-main'>
         <Row className='footer-row1'>
@@ -23,10 +34,10 @@ const Footer = () => {
                 <div className='footer-row1-col2'>
                     <div className='footer-row1-col2-div1'>
                          <img className='footer-mail-icon' src={mailicon} alt=''/> 
-                         <input className='footer-input' placeholder='Enter your email address' />
+                         <input className='footer-input' placeholder='Enter your email address' value={email} onChange={(e)=>setEmail(e.target.value)}/>
                     </div>
 
-                    <div className='footer-row1-col2-div2'>
+                    <div className='footer-row1-col2-div2' onClick={handleSubscribe}>
                         <span className='footer-row1-col2-div2-button' >Subscribe to Newsletter</span>
                     </div>
                 </div>
