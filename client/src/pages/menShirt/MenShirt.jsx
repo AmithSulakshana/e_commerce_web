@@ -36,8 +36,8 @@ const MenShirt = () => {
               accessToken: localStorage.getItem("accessToken")
           }
       }).then((res) => {
-          console.log(res.data);
           dispatch(addToCart({quntity:numOfItems+quan}))
+          alert("Item Added to Cart")
       }).catch((error) => {
           console.error('Error adding to cart:', error);
       });

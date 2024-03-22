@@ -14,10 +14,10 @@ function CheckOut() {
   const [expirationMonth, setExpirationMonth] = useState('');
   const [expirationYear, setExpirationYear] = useState('');
   const [cvnNumber, setCvnNumber] = useState('');
-  const [cardNumberError, setCardNumberError] = useState(true);
-  const [expirationMonthError, setExpirationMonthError] = useState(true);
-  const [expirationYearError, setExpirationYearError] = useState(true);
-  const [cvnError, setCvnError] = useState(true);
+  const [cardNumberError, setCardNumberError] = useState(false);
+  const [expirationMonthError, setExpirationMonthError] = useState(false);
+  const [expirationYearError, setExpirationYearError] = useState(false);
+  const [cvnError, setCvnError] = useState(false);
   const totalPrice = useSelector(store=>store.cartSlice.totalPrice)
   const dispatch = useDispatch()
 
@@ -67,7 +67,7 @@ function CheckOut() {
           setExpirationMonthError(true);
         }
         if (expirationYear === '') {
-          setExpirationYearError(true);
+          setExpirationYearError(true); 
         }
         if (cvnNumber === '') {
           setCvnError(true);
@@ -138,6 +138,7 @@ function CheckOut() {
               {cardNumberError && <div className="error-message">Card number is required</div>}
               <div className='check-row2-div1-row5'>
                    <div className='check-crd-month'>Expiration Month *</div>
+                   <div className='d-flex gap-2'>
                    <select 
                         className={`check-input2 ${expirationMonthError ? 'error1' : ''}`}
                         value={expirationMonth}
@@ -177,6 +178,9 @@ function CheckOut() {
                       <option>2031</option>
                       <option>2032</option>
                    </select>
+
+                   </div>
+                  
               </div>
               {expirationMonthError && <span className="error-message">Expiration month is required</span>}
               {expirationYearError && <span className="error-message2">Expiration year is required</span>}
